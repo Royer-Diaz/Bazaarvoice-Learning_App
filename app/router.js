@@ -15,7 +15,10 @@ Router.map(function() {
   this.route('messages');
   this.route('tracks');
   this.resource('posts', function(){
-    this.route('post');
+    this.resource('new-post', { path: '/new-post'});
+  });
+  this.route('post', { path: '/posts/post/:post_id' }, function() {
+    this.resource('new-comment');
   });
 });
 
